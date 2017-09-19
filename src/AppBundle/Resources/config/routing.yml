@@ -1,0 +1,25 @@
+home:
+    path:     /
+    defaults: { _controller: AppBundle:General:index}
+
+photo:
+    path:     /photos/{id}
+    defaults: { _controller: AppBundle:General:photo}
+    requirements:
+        id: \d+
+  
+presentation:
+    path:     /presentation
+    defaults: { _controller: AppBundle:General:presentation}
+  
+tarifs:
+    path:     /tarifs
+    defaults: { _controller: AppBundle:General:tarifs}
+  
+contact:
+    path:     /contact
+    defaults: { _controller: AppBundle:General:contacts}
+  
+livre:
+    path:     /livredor
+    defaults: { _controller: AppBundle:General:livre}                                                    

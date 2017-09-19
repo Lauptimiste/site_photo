@@ -1,0 +1,89 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block body %}
+
+{% if bandeauImg != null %}
+    <div class="bandeau">
+        <img src="{{ asset(bandeauImg.webPath) }}" alt="{{ bandeauImg.alt }}" class="img-responsive mgb-25">
+    </div>
+{% endif %}
+
+<div class="row">
+    
+    <div class="{% if uniqRub == false %}col-xs-9{% else %}col-xs-12{% endif %} decale_for_image">
+    
+        <div class="theme_title">
+            {{ theme.title }}
+        </div>
+
+        <p>{{ theme.presentation|raw }}</p>
+        
+        {% for rub in rubriques %}            
+                {% if rub.ref != theme.ref or uniqRub == true %}
+                    <div class="row">
+                        <div class="rubrique col-xs-12" id="{{ rub.ref }}">
+                            {% if uniqRub == false %}
+                            <div class="rubrique_title">
+                                    {{ rub.ref }}
+                            </div>
+                            {% endif %}
+                            <p>{{ rub.presentation|raw }}</p>
+                        </div>
+            
+                    </div>        
+        
+                    <div class="row">
+                        <div class="col-xs-4">
+                            {% for img in rub.images %}
+                    
+                                {% if img.emplacement == 2 and col[img.id] == 1 %}                        
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                {% endif %}
+                        
+                            {% endfor %}                             
+                        </div>
+                        <div class="col-xs-4">
+                            {% for img in rub.images %}
+                    
+                                {% if img.emplacement == 2 and col[img.id] == 2 %}                        
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                {% endif %}
+                        
+                            {% endfor %}                             
+                        </div>        
+                        <div class="col-xs-4">
+                            {% for img in rub.images %}
+                    
+                                {% if img.emplacement == 2 and col[img.id] == 3 %}                        
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                {% endif %}
+                        
+                            {% endfor %}                             
+                        </div> 
+                    </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    {% if uniqRub == false %}
+        <div class="col-xs-3 decale_for_image">
+                <div class="fixed">
+                <ul class="nav nav-tabs nav-stacked">
+                    {% for rub in rubriques %}
+                        {% if rub.ref != theme.ref %}
+                            <li class="">
+                                <a href="#{{ rub.ref }}">
+                                    {{ rub.ref }} 
+                                </a>
+                            </li>
+                            
+                        {% endif %}
+                    {% endfor %}     
+                </ul>  
+            </div>  
+        </div>
+    {% endif %}
+    
+</div>
+ 
+{% endblock %}

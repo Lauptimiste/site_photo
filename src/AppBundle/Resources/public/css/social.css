@@ -1,0 +1,92 @@
+#social-icons-container {
+  /*background: #444444;*/
+}
+
+.footer-socials {
+  text-align: center;
+}
+.footer-socials a {
+	width: auto; 
+     height: auto; 
+     line-height: normal; 
+     vertical-align: middle; 
+     border: none !important; 
+    border: 1px solid lightblue;
+     background: #333; 
+    color: #FFF;
+     position: relative; 
+    display: inline-block; 
+     font-size: 1.3em; 
+     border-radius: 2em; 
+     margin: 5px;
+    padding: 5px;
+    -webkit-transition: background-color 0.2s;
+    transition: background-color 0.2s;
+}
+.footer-socials a:before {
+  speak: none;
+  line-height: 1;
+  display: inline-block;
+  color: white;
+  margin-top: -0.5em;
+  margin-left: -1em;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.footer-socials a:hover {
+  opacity: 1;
+  background: rgba(76,165,255,0.1);
+  color: #fff;
+}
+.icon-status:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'dashicons';
+  content: "\f130";
+  margin-right: 5px;
+  position: relative;
+  top: -2px;
+}
+
+.icon-status:before,
+.format-status .entry-meta .date a:before,
+.format-status .single-work .work-entry-meta .date a:before,
+.single-work .format-status .work-entry-meta .date a:before {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'dashicons';
+  content: "\f130";
+}
+
+@font-face {
+  font-family: 'theme-icons';
+  src: url("fonts/theme-icons.eot?-8lvnt7");
+  src: url("fonts/theme-icons.eot?#iefix-8lvnt7") format("embedded-opentype"), url("fonts/theme-icons.svg?-8lvnt7#theme-icons") format("svg"), url("fonts/theme-icons.woff?-8lvnt7") format("woff"), url("fonts/theme-icons.ttf?-8lvnt7") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="theme-icon-"], [class*=" theme-icon-"],
+#menu-toggle,
+#search-toggle {
+  font-family: 'theme-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.zoom-10
+{
+	/*font-size:2em;*/
+	width: 48px;
+    height: 48px;
+    padding: 10px;
+}

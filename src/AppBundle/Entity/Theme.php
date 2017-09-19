@@ -1,0 +1,231 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Theme
+ *
+ * @ORM\Table(name="theme")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ThemeRepository")
+ */
+class Theme
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ref", type="string", length=255, unique=true)
+     */
+    private $ref;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Rubrique", mappedBy="theme")
+     */
+    private $rubriques;  
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presentation", type="string", length=3000, unique=false)
+     */
+    private $presentation;    
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="presentation_accueil", type="string", length=3000, unique=false)
+     */
+    private $presentation_accueil;    
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, unique=false)
+     */
+    private $title;    
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->rubriques = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set theme_ref
+     *
+     * @param string $theme_ref
+     *
+     * @return Theme
+     */
+    public function setThemeRef($themeRef)
+    {
+        $this->themeRef = $themeRef;
+
+        return $this;
+    }
+
+    /**
+     * Get ref
+     *
+     * @return string
+     */
+    public function getThemeRef()
+    {
+        return $this->themeRef;
+    }
+    
+    /**
+     * Add rubrique
+     *
+     * @param AppBundle\Entity\Rubrique $rubrique
+     *
+     * @return Theme
+     */
+    public function addRubrique(\AppBundle\Entity\Rubrique $rubrique)
+    {
+        $this->rubriques[] = $rubrique;
+
+        // On lie l'annonce à la candidature
+        $rubrique->setTheme($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove rubrique
+     *
+     * @param \AppBundle\Entity\Rubrique $rubrique
+     */
+    public function removeRubrique(\AppBundle\Entity\Rubrique $rubrique)
+    {
+        $this->rubriques->removeElement($rubrique);
+    }
+    
+    /**
+     * Get rubriques
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRubriques()
+    {
+        return $this->rubriques;
+    }
+
+    /**
+     * Set presentation
+     *
+     * @param string $presentation
+     *
+     * @return Theme
+     */
+    public function setPresentation($presentation)
+    {
+        $this->presentation = $presentation;
+
+        return $this;
+    }
+
+    /**
+     * Get presentation
+     *
+     * @return string
+     */
+    public function getPresentation()
+    {
+        return $this->presentation;
+    }
+
+    /**
+     * Set ref
+     *
+     * @param string $ref
+     *
+     * @return Theme
+     */
+    public function setRef($ref)
+    {
+        $this->ref = $ref;
+
+        return $this;
+    }
+
+    /**
+     * Get ref
+     *
+     * @return string
+     */
+    public function getRef()
+    {
+        return $this->ref;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Theme
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set presentationAccueil
+     *
+     * @param string $presentationAccueil
+     *
+     * @return Theme
+     */
+    public function setPresentationAccueil($presentationAccueil)
+    {
+        $this->presentation_accueil = $presentationAccueil;
+
+        return $this;
+    }
+
+    /**
+     * Get presentationAccueil
+     *
+     * @return string
+     */
+    public function getPresentationAccueil()
+    {
+        return $this->presentation_accueil;
+    }
+}

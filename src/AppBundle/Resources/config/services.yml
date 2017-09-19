@@ -1,0 +1,5 @@
+services:
+    app.rubfromtheme:
+        class: AppBundle\RubFromTheme\RubFromTheme
+        arguments:
+            - %id%

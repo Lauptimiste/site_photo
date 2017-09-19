@@ -1,0 +1,36 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block body %}
+<div id="home">
+  	<div class="row">
+  		<div id="home_presentation" class="col-xs-12 presentation">
+  		<h1>Christophe Alves, auteur-photographe, basé à Sausset-les-Pins (13)</h1><br /> 
+  Je travaille avec les professionnels pour tous types de projets, tels que packshot, évènements d’entreprise, reportages… <br />
+  Mon rayon d’action est situé sur la région de Martigues, Istres, Aix-Marseille, mais je peux me déplacer sur toute la France et international.
+  		</div>
+  	</div>
+    
+    {% for theme in themes %}
+        <a href="{{ path('photo', {'id': theme.id}) }}">
+      		<div class="row cadre bottom">
+      			<div class="col-xs-12 col-lg-8">
+                {% for rub in theme.rubriques %}
+                    {% if rub.ref == theme.ref %}
+                        {% for img in rub.images %}
+                            {% if img.emplacement == 1 %}
+                                <img src="{{ asset(img.webPath) }} " alt="img.alt" class="">
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %} 
+      			</div>
+      			
+                <div class="col-xs-12 col-lg-4"> 
+                    <h2>{{ theme.title }}</h2>
+                    <p>{{ theme.presentationAccueil|raw }}</p>    
+                </div>   
+            </div>  
+        </a>                                   
+    {% endfor %}  	
+</div>
+{% endblock %}

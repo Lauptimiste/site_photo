@@ -1,0 +1,27 @@
+{% extends "AppBundle::layout.html.twig" %}
+  
+{% block head%}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}   
+  
+  {% stylesheets '@AppBundle/Resources/public/css/social.css' %}            {#bundles/ocplatform/css/main.css#}
+      <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+  {% endstylesheets %}     
+  
+{% endblock %}
+
+{% block body %}
+
+<div class="row footer-socials">
+  Vous pouvez me trouver sur facebook : <a href="https://www.facebook.com/ChristopheAlvesPhotographe" class="theme-icon-facebook" title="Facebook" target="_blank"><i class="fa fa-facebook zoom-10"></i></a>
+  <br /><br />
+  Ou sur Instagram : <a href="https://www.instagram.com/christophe_auteur_photographe" class="theme-icon-instagram" title="Instagram" target="_blank"><i class="fa fa-instagram zoom-10"></i></a>
+  <br /><br />
+  Vous pouvez aussi me télephoner directement au <b><a href="tel:0609896859">06 09 89 68 59</a></b>.          
+</div>
+
+{% endblock %}
