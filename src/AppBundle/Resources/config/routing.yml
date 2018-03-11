@@ -3,10 +3,10 @@ home:
     defaults: { _controller: AppBundle:General:index}
 
 photo:
-    path:     /photos/{id}
+    path:     /{url}
     defaults: { _controller: AppBundle:General:photo}
     requirements:
-        id: \d+
+        url: ^[a-z]+-[a-z]+$
   
 presentation:
     path:     /presentation
@@ -22,4 +22,8 @@ contact:
   
 livre:
     path:     /livredor
-    defaults: { _controller: AppBundle:General:livre}                                                    
+    defaults: { _controller: AppBundle:General:livre}
+    
+carrousel:
+    path:    /carrousel
+    defaults: { _controller: AppBundle:General:carrousel}
