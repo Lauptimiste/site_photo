@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {% block head%}
+  {% block head %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
   {% block stylesheets %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
     
-    {% stylesheets '@AppBundle/Resources/public/css/main.css' %}            {#bundles/ocplatform/css/main.css#}
+    {% stylesheets '@AppBundle/Resources/public/css/main.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}     
     
@@ -23,21 +23,26 @@
   {% block javascripts %}
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                {% javascripts '@AppBundle/Resources/public/js/carrousel.js' %}
+                    <script type="text/javascript" src="{{ asset_url }}"></script>
+                {% endjavascripts %}
   {% endblock %}
 
 
 </head>
 
+
 <body>
+    <div class="to_be_black">
+        {{ render(controller("AppBundle:General:header")) }}
 
-  {{ render(controller("AppBundle:General:header")) }}
+        <div class="container">
+          {% block body %}
+          {% endblock %}
+        </div>  
 
-<div class="container">
-  {% block body %}
-  {% endblock %}
-</div>  
+        {{ render(controller("AppBundle:General:footer")) }}
 
-  {{ render(controller("AppBundle:General:footer")) }}
-
+    </div>
 </body>
 </html>
