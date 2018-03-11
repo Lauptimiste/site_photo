@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpFoundation\JsonResponse; 
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use AppBundle\Entity\Theme;
 use AppBundle\Entity\Rubrique;
@@ -136,5 +136,32 @@ class GeneralController extends Controller
     return $this->render('AppBundle:General:footer.html.twig', array(
 
     ));
-  }  
+  }
+
+    public function carrouselAction(Request $request)
+    {
+        if ($request->request->get('id')) {
+            //make something curious, get some unbelieveable data
+//            $arrData = ['output' => 'here the result which will appear in div'];
+//            return new JsonResponse($this->render('AppBundle:General:carrousel.html.twig',
+//                            array(
+//            )));
+            $repository = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('AppBundle:Image');
+            // On récupère la liste des thèmes
+            $image = $repository->find($request->request->get('id'));
+            $rubrique = $image->getRubrique();
+
+            $images = $repository->findBy(array('rubrique' => $rubrique, 'emplacement' => array(3, 2)));
+
+            return $this->render('AppBundle:General:carrousel.html.twig', array(
+                        'images' => $images,
+                        'first' => $image
+            ));
+        }
+//        return $this->render('AppBundle:General:carrousel.html.twig', array(
+//        ));
+    }
+
 }
