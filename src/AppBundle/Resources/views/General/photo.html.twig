@@ -3,14 +3,14 @@
 {% block body %}
 
 {% if bandeauImg != null %}
-    <div class="bandeau">
+    <div class="bandeau hidden-xs">
         <img src="{{ asset(bandeauImg.webPath) }}" alt="{{ bandeauImg.alt }}" class="img-responsive mgb-25">
     </div>
 {% endif %}
 
 <div class="row">
     
-    <div class="{% if uniqRub == false %}col-xs-9{% else %}col-xs-12{% endif %} decale_for_image">
+    <div class="{% if uniqRub == false %}col-lg-9{% else %}col-lg-12{% endif %} col-xs-12 decale_for_image">
     
         <div class="theme_title">
             {{ theme.title }}
@@ -33,29 +33,29 @@
                     </div>        
         
                     <div class="row">
-                        <div class="col-xs-4">
+                        <div class="col-lg-4 col-xs-12">
                             {% for img in rub.images %}
                     
                                 {% if img.emplacement == 2 and col[img.id] == 1 %}                        
-                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25 img_to_click" data-img="{{ img.id }}">
                                 {% endif %}
                         
                             {% endfor %}                             
                         </div>
-                        <div class="col-xs-4">
+                        <div class="col-lg-4 col-xs-12">
                             {% for img in rub.images %}
                     
                                 {% if img.emplacement == 2 and col[img.id] == 2 %}                        
-                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25 img_to_click" data-img="{{ img.id }}">
                                 {% endif %}
                         
                             {% endfor %}                             
                         </div>        
-                        <div class="col-xs-4">
+                        <div class="col-lg-4 col-xs-12">
                             {% for img in rub.images %}
                     
                                 {% if img.emplacement == 2 and col[img.id] == 3 %}                        
-                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25">
+                                    <img src="{{ asset(img.webPath) }}" alt="{{ img.alt }}" class="img-responsive mgb-25 img_to_click" data-img="{{ img.id }}">
                                 {% endif %}
                         
                             {% endfor %}                             
@@ -66,7 +66,7 @@
     </div>
     
     {% if uniqRub == false %}
-        <div class="col-xs-3 decale_for_image">
+        <div class="col-xs-3 decale_for_image hidden-xs">
                 <div class="fixed">
                 <ul class="nav nav-tabs nav-stacked">
                     {% for rub in rubriques %}
@@ -85,5 +85,7 @@
     {% endif %}
     
 </div>
- 
+    
+    <div class="hidden" id="carrousel_route">{{ (path('carrousel')) }}</div>
+  
 {% endblock %}
