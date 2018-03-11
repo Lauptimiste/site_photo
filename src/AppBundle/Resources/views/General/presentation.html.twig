@@ -1,0 +1,96 @@
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block body %}
+<div id="presentation_page" class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            Bonjour, bonjour !
+            <br /><br />
+            Moi, c'est Lili. Je ne fais que passer pour écrire quelques mots sur cette page. Je suis la femme du super photographe Christophe ALVES, 
+            auteur de ce site, mais comme l'auto-présentation, c'est pas son fort (il préfère prendre les autres en photos :)), je m'en occupe
+            (et je fais le site, aussi, en passant...).
+            <br /><br />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 col-xs-12">                
+            Alors, Christophe, d'abord, c'est un homme honnête, droit dans ses bottes et généreux. Il a un grand coeur ! <br />
+            Ensuite, il aime les belles choses (et les belles femmes, mais attention, pour lui, la beauté est d'abord intérieure !), et surtout, surtout...<br />
+            Il aime mettre les choses et les personnes en valeur avec de belles photos !
+        </div>
+        <div class="col-md-3 col-xs-12">
+            {% image '@AppBundle/Resources/public/img/grand_coeur.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" style="max-height:200px" />
+            {% endimage %}
+        </div>
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-md-2 hidden-xs">     
+            {% image '@AppBundle/Resources/public/img/appareils.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" style="max-height:250px" />
+            {% endimage %}        
+        </div>
+        <div class="col-md-10 col-xs-12">
+            Une vraie petite passion, il ne lâche jamais son appareil (et se pose 100 000 fois la question de savoir lequel il prend...). 
+            En fait, en vrai, il s'y est mis quand nous étions tout jeunes, tous les deux, avec son petit compact. Et puis, il a eu envie d'en faire plus, et mieux,
+             et même d'en faire en professionnel ! Mais il n'a pas laissé les choses au hasard, il s'est formé, à travers :<br />
+              1) une formation<br />
+              2) des livres, magazines, enfin, beaucoup de lecture<br />
+              3) des rencontres avec des professionnels, des stages, etc...<br /> 
+             Bref, maintenant, il est super fort, en plus d'adorer ça ! Mais, surtout, se former, c'est tous les jours de la vie, alors, ... il continue ... 
+        </div>
+        <div class="col-xs-12 visible-xs">     
+            {% image '@AppBundle/Resources/public/img/appareils.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" style="max-height:250px" />
+            {% endimage %}        
+        </div>        
+    </div>
+    <br /><br />
+    <div class="row">
+        <div class="col-md-7 col-xs-12">      
+            Bon, bon, c'est pas tout ça, mais il n'y a pas non plus QUE la photo dans sa vie.
+            <br /><br />
+            D'abord, il y a sa famille : moi, et 2 adorables amours !
+        </div>
+        <div class="col-md-4 col-xs-12">
+            {% image '@AppBundle/Resources/public/img/nous4_sausset_06032017.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" style="max-height:250px" />
+            {% endimage %}
+        </div>
+    </div>                    
+    <br /><br />
+    <div class="row">
+        <div class="col-md-4 hidden-xs">     
+            {% image '@AppBundle/Resources/public/img/image-groupe-travail.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" />
+            {% endimage %}        
+        </div>
+        <div class="col-md-8 col-xs-12">  
+            Ensuite, il y a son boulot ... bah oui, il a un statut de photographe pro, pour le plaisir, mais son gagne-pain principal, pour l'instant, c'est son boulot.
+        </div>
+        <div class="visible-xs col-xs-12">     
+            {% image '@AppBundle/Resources/public/img/image-groupe-travail.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" />
+            {% endimage %}        
+        </div>        
+    </div>             
+    <br /><br />
+    <div class="row">
+        <div class="col-md-8 col-xs-12">     
+            Et puis, il y a le rugby : il est arbitre ! Et d'ailleurs, il adore faire des photos d'un match, trop cool !!
+        </div>
+        <div class="col-md-4 col-xs-12">
+            {% image '@AppBundle/Resources/public/img/arbitre.jpg' %}
+                <img src = "{{ asset_url }}" alt="Christophe Alves Auteur Photographe" class="img-responsive" />
+            {% endimage %}
+        </div>
+    </div>     
+    <br /><br />
+    <div class="row">
+        <div class="col-md-12 col-xs-12">     
+            Voilà, j'espère que cette petite présentation vous a plu, et quant à moi, je m'en retourne ... terminer le site !  
+        </div>
+    </div>
+</div>
+{% endblock %}                          
